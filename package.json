@@ -1,0 +1,28 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "This is a to do list that I am working on using HTML CSS JS NODE EXPRESS MONGO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarthakbhardwaj27/To-Do-List.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarthakbhardwaj27/To-Do-List/issues"
+  },
+  "homepage": "https://github.com/sarthakbhardwaj27/To-Do-List#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "nodejs": "^0.0.0",
+    "nodemon": "^2.0.22"
+  }
+}
