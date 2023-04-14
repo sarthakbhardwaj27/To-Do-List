@@ -101,17 +101,15 @@ app.get("/", (req, res) => {
     if(foundItems.length === 0){
       Item.insertMany(defaultItem);
       res.render("list", { _listTitle: "Today", newListItems: foundItems });
-    })
-    .catch(function (err) {
+    }else{
+      res.render("list", { _listTitle: "Today", newListItems: foundItems });
+    }
+    }).catch(function (err) {
       console.log(err);
-    });
-  }
-  else{
-    res.render("list", { _listTitle: "Today", newListItems: foundItems });
-  }
-
-  //res.render("list", { _listTitle: day , newListItems: items});
+  }); 
 });
+  //res.render("list", { _listTitle: day , newListItems: items});
+// });
 
 app.get("/work", (req, res) => {
   res.render("list", { _listTitle: "Work List", newListItems: workItems });
@@ -139,6 +137,7 @@ app.post("/", (req, res) => {
 app.get("/about", (req, res) => {
   res.render("about");
 });
+
 app.listen(3000, function () {
   console.log("Server is now started on port 3000");
 });
