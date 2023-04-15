@@ -32,7 +32,24 @@ const item3 = new Item({
   name: " Hit this button to delete",
 });
 
-const defaultItem = [item1, item2, item3];
+const defaultItems = [item1, item2, item3];
+
+// Item.insertMany(defaultItems, function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("Successfully saved default items to DB.");
+//   }
+// })
+// insertmany no longer accepts a callback
+
+try {
+  const result = Item.insertMany(defaultItems);
+  console.log(`${result.insertedCount} documents inserted`);
+} catch (error) {
+  console.error(error);
+}
+
 
 // app.get("/",function(req,res){
 //     var today = new Date();
