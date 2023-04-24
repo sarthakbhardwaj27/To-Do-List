@@ -1,27 +1,39 @@
-<%- include('header'); -%>
+<!DOCTYPE html>
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
     <div class="box" id="heading">
-        <h1><%= _listTitle %> ToDo list</h1>
+        <h1>
+            <%= _day %>'s To Do List
+        </h1>
     </div>
 
     <div class="box">
-        <!-- <% for(var i=0;i<newListItems.length;i++){ %>
-            <div class="item">
-                <input type="checkbox">
-                <p><%= newListItems[i].name %></p>
-            </div>
-        <% } %> -->
-        <% newListItems.forEach((item)=>{ %>
-            <div class="item">
-                <input type="checkbox">
-                <p><%= item.name %></p>
-            </div>
-        <% }) %>   
-
-        <form action="/" method="post" class="item">
-            <input type="text" name="newItem" placeholder="Add Task" autocomplete="off">
-            <button type="submit" name="button" value=<%= _listTitle %>>+</button>
-        </form>
+        <% for(var i=0; i<_tasks.length; i++){ %>
+            <form action="/delete" method="post">
+                <div class="item">
+                    <input type="checkbox" onchange="this.form.submit()" name="checkbox" value="<%= _tasks[i]._id %>">
+                    <p>
+                        <%= _tasks[i].task %>
+                        <!-- console.log(<%= _tasks[i]._id %>); -->
+                    </p>
+                </div>
+            </form>
+            <% } %>
+                <form action="/" method="post" class="item">
+                    <input type="text" name="newItem" placeholder="Add New Task">
+                    <button type="submit" name="button">+</button>
+                </form>
     </div>
-   
-<%- include('footer'); -%>
+</body>
+
+</html>
